@@ -19,10 +19,14 @@ public class Group {
 			this.groupName = groupName;
 		}
 
-		public Student searchStudent (String name){
-	        for (int i = 0; i<groupSize+1; i++) {
-	            if ( name.equals(group[i].getName()) ) {
-	                return (Student)group[i];
+	    public Student searchStudent (String name){
+	        for (int i = 0; i<groupSize; i++) {
+	            try{
+	        	    if ( name.equals(group[i].getName()) ) {
+	                    return (Student)group[i];
+	                }
+	            } catch (NullPointerException e) {
+	            	return null;
 	            }
 	        }
 	        return null;
